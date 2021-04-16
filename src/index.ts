@@ -7,7 +7,7 @@ import bodyParser from "body-parser";
 import { Connection, createConnection } from "typeorm";
 import { Tool } from "./entities/Tool";
 // import { kMaxLength } from "node:buffer";
-// firebase?
+// firebase
 
 const main = async () => {
   await createConnection({
