@@ -15,10 +15,16 @@ export const uploadTool = async (
   console.log(`Tool ${req.body.name} created!`);
   res.sendStatus(200);
 };
+
 export const listTools = async (
   req: express.Request,
   res: express.Response
 ) => {
   let tools = await Tool.find();
   res.send({ tools });
+};
+
+export const getTool = async (req: express.Request, res: express.Response) => {
+  const tool = await Tool.findOne(req.query);
+  res.json(tool);
 };

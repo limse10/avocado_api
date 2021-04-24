@@ -1,5 +1,13 @@
-import { Entity, Column, PrimaryColumn, BaseEntity, Unique } from "typeorm";
-
+import {
+  Entity,
+  Column,
+  PrimaryColumn,
+  BaseEntity,
+  Unique,
+  JoinTable,
+  ManyToMany,
+} from "typeorm";
+import { Tool } from "./Tool";
 @Entity()
 @Unique(["username"])
 export class User extends BaseEntity {
@@ -8,4 +16,8 @@ export class User extends BaseEntity {
 
   @Column()
   username: string;
+
+  @ManyToMany(() => Tool)
+  @JoinTable()
+  starred: Tool[];
 }

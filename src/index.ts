@@ -39,15 +39,15 @@ const main = async () => {
     res.send("hello");
   });
 
+  // User routes
   app.get("/user", users.getUser);
-
   app.post("/register", auth.auth, users.registerUser);
-
+  app.get("/u/starred", users.getStarred);
+  app.post("/u/addStar", users.addStar);
+  // Tool routes
   app.post("/upload", auth.auth, tools.uploadTool);
-
   app.get("/ls", tools.listTools);
-
-  app.get("/tool", tools.listTools);
+  app.get("/tool", tools.getTool);
 
   app.listen(3001, () => {
     console.log("Listening on localhost:3001");
