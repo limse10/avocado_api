@@ -56,6 +56,7 @@ export const getStarred = async (
     relations: ["starred"],
     where: { uid: req.query.uid },
   });
+  const tools = user.starred;
   console.log(user);
-  res.json(user.starred);
+  res.json({ tools });
 };
